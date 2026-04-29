@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import dayjs from 'dayjs';
+import { format, addDays, differenceInDays, startOfDay } from 'date-fns';
 import type { Loan } from '@/lib/types';
 
 const FINE_PER_DAY = 2000;
@@ -21,7 +21,7 @@ const initialLoans: Loan[] = [
 
 export default function TransactionsPage() {
   const [loans, setLoans] = useState(initialLoans);
-  const [form, setForm] = useState({ member_id: '', book_id: '', loan_date: dayjs().format('YYYY-MM-DD'), due_date: dayjs().add(7, 'day').format('YYYY-MM-DD') });
+  const [form, setForm] = useState({ member_id: '', book_id: '', loan_date: format(new Date(), 'yyyy-MM-dd'), due_date: format(addDays(new Date(), 7), 'yyyy-MM-dd') });
 
   const submitLoan = () => {
     if (!form.member_id || !form.book_id) return;
@@ -39,8 +39,8 @@ export default function TransactionsPage() {
   };
 
   const returnBook = (loan: Loan) => {
-    const now = dayjs();
-    const lateDays = Math.max(0, now.startOf('day').diff(dayjs(loan.due_date), 'day'));
+    const now = new Date();
+    const lateDays = Math.max(0, differenceInDays(startOfDay(now), startOfDay(new Date(loan.due_date))));
     const fine = lateDays * FINE_PER_DAY;
 
     setLoans((prev) =>
@@ -48,7 +48,7 @@ export default function TransactionsPage() {
         l.id === loan.id
           ? {
               ...l,
-              return_date: now.format('YYYY-MM-DD'),
+              return_date: format(now, 'yyyy-MM-dd'),
               status: lateDays > 0 ? 'terlambat' : 'dikembalikan',
               fine_amount: fine
             }
