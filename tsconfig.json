@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-=======
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
->>>>>>> af1936f632e83dbc3bc588bc8881d3533092e41f
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -18,16 +13,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-<<<<<<< HEAD
     "plugins": [
       {
         "name": "next"
       }
     ],
-=======
-    "plugins": [{ "name": "next" }],
     "baseUrl": ".",
->>>>>>> af1936f632e83dbc3bc588bc8881d3533092e41f
     "paths": {
       "@/*": ["./*"]
     }
