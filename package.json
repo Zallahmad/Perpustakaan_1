@@ -1,11 +1,17 @@
 {
+<<<<<<< HEAD
   "name": "perpustakaan-sekolah",
   "version": "1.0.0",
+=======
+  "name": "perpustakan-sekolah",
+  "version": "0.1.0",
+>>>>>>> af1936f632e83dbc3bc588bc8881d3533092e41f
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+<<<<<<< HEAD
     "lint": "next lint"
   },
   "dependencies": {
@@ -38,5 +44,27 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"
+=======
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "dayjs": "^1.11.13",
+    "next": "14.2.13",
+    "qrcode": "^1.5.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.13",
+    "typescript": "^5.7.3"
+>>>>>>> af1936f632e83dbc3bc588bc8881d3533092e41f
   }
 }
